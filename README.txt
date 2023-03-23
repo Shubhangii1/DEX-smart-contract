@@ -1,28 +1,11 @@
-REMIX DEFAULT WORKSPACE
+This is a smart contract written in Solidity programming language for a decentralized exchange (DEX). The contract defines two mappings, one for assets and another for balances.
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+The Asset struct contains the owner's address and the asset's balance. The addAsset function is used to add a new asset and requires the asset to not already exist. The buyAsset function is used to buy an asset and requires the amount to be greater than zero, the asset's balance to be greater than or equal to the amount, and the buyer to have sufficient funds to pay for the asset. Upon a successful purchase, the buyer's balance of the asset is increased, and the asset's owner receives the payment.
 
-This workspace contains 3 directories:
+The sellAsset function is used to sell an asset and requires the amount to be greater than zero, the seller's balance of the asset to be greater than or equal to the amount, and the asset to be sold to the contract's owner. Upon a successful sale, the seller's balance of the asset is decreased, and the seller receives payment for the sold asset.
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+The getBalance function can be called to retrieve the balance of an asset for a specific user.
 
-SCRIPTS
+The SPDX-License-Identifier is used to indicate the license under which the contract is released. In this case, the contract is released under the GPL-3.0 license.
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
-
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
-
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
-
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
-
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+The Solidity version used is >=0.8.2 and <0.9.0. This means that the contract is compatible with Solidity versions equal to or greater than 0.8.2 and less than 0.9.0.
